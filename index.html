@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R1a1 â€” What the Science Actually Says</title>
+<style>
+:root{--bg:#0a0e17;--bg2:#0d1320;--surface:#131a26;--surface2:#1a2332;--border:#253044;--border2:#324158;--text:#e6edf5;--muted:#8b9bb4;--muted2:#5f7391;--gold:#f0b429;--cyan:#38bdf8;--green:#34d399;--red:#f87171;--orange:#fb923c;--purple:#a78bfa;--radius:14px;--radius-sm:8px;--maxw:1080px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,23,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:18px;}
+.brand{font-weight:800;font-size:15px;color:var(--text);display:flex;align-items:center;gap:8px;}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold);}
+.nav-links{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none;}
+.nav-links a{color:var(--muted);font-size:13.5px;font-weight:600;padding:6px 12px;border-radius:8px;white-space:nowrap;transition:.2s;}
+.nav-links a:hover{color:var(--text);background:var(--surface2);text-decoration:none}
+.hero{padding:150px 20px 90px;max-width:var(--maxw);margin:0 auto;position:relative;}
+.hero::before{content:"";position:absolute;top:60px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(240,180,41,.10),transparent 65%);pointer-events:none;z-index:-1;}
+.eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);border:1px solid rgba(240,180,41,.35);background:rgba(240,180,41,.07);padding:6px 14px;border-radius:100px;margin-bottom:26px;}
+.hero h1{font-size:clamp(2rem,5.5vw,3.6rem);line-height:1.12;font-weight:850;letter-spacing:-1.2px;margin-bottom:22px;}
+.hero h1 .strike{color:var(--muted2);text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:4px;}
+.hero h1 .grad{background:linear-gradient(100deg,var(--gold),var(--orange));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.hero p.lead{font-size:clamp(1rem,2.2vw,1.18rem);color:var(--muted);max-width:720px;margin-bottom:36px;}
+.hero-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;max-width:720px;}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;}
+.stat .num{font-size:1.7rem;font-weight:850;color:var(--gold);line-height:1;letter-spacing:-.5px;}
+.stat .lbl{font-size:12.5px;color:var(--muted);margin-top:6px;font-weight:500}
+section{padding:80px 20px;max-width:var(--maxw);margin:0 auto}
+.sec-head{margin-bottom:44px}
+.sec-num{font-size:12px;font-weight:800;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;}
+.sec-head h2{font-size:clamp(1.5rem,3.6vw,2.3rem);font-weight:800;letter-spacing:-.7px;line-height:1.2;margin-bottom:12px;}
+.sec-head p{color:var(--muted);max-width:680px;font-size:15.5px}
+.claim-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;border-left:4px solid var(--red);}
+.claim-card .label{font-size:11.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:12px;}
+.claim-card blockquote{font-size:17px;font-weight:650;line-height:1.55;color:var(--text);font-style:italic;}
+.claim-card .why{margin-top:18px;padding-top:16px;border-top:1px solid var(--border);font-size:14px;color:var(--muted);}
+.verdict-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px;}
+@media(max-width:760px){.verdict-grid{grid-template-columns:1fr}}
+.verdict{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;border-top:3px solid var(--red);}
+.verdict.ok{border-top-color:var(--green)}
+.verdict .vlabel{font-size:11.5px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;margin-bottom:10px;}
+.verdict .vlabel.no{color:var(--red)}.verdict .vlabel.yes{color:var(--green)}
+.verdict p{font-size:14.5px;color:var(--muted);line-height:1.6}
+.chart-note{font-size:13px;color:var(--muted2);background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:13px 16px;margin-bottom:26px;display:flex;gap:10px;align-items:flex-start;}
+.bars{display:flex;flex-direction:column;gap:16px}
+.bar-row{display:grid;grid-template-columns:210px 1fr 62px;gap:16px;align-items:center;}
+@media(max-width:640px){.bar-row{grid-template-columns:1fr;gap:6px}}
+.bar-label{font-size:14px;font-weight:600;color:var(--text)}
+.bar-label small{display:block;font-size:11.5px;color:var(--muted2);font-weight:500;margin-top:2px}
+.bar-track{height:26px;background:var(--surface2);border-radius:7px;overflow:hidden;border:1px solid var(--border);}
+.bar-fill{height:100%;width:0;border-radius:6px;transition:width 1.1s cubic-bezier(.2,.7,.3,1);position:relative;}
+.bar-fill::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18));}
+.bar-val{font-size:14.5px;font-weight:800;color:var(--gold);text-align:right;}
+.bar-note{grid-column:1/-1;font-size:12px;color:var(--muted2);margin-top:-4px;padding-left:2px;}
+.legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:26px;padding-top:22px;border-top:1px solid var(--border);}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.legend-swatch{width:14px;height:14px;border-radius:4px}
+.paper{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:12px;overflow:hidden;}
+.paper-head{display:flex;align-items:flex-start;gap:16px;padding:22px 24px;cursor:pointer;user-select:none;}
+.paper-idx{flex-shrink:0;width:30px;height:30px;border-radius:8px;background:rgba(240,180,41,.1);border:1px solid rgba(240,180,41,.25);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--gold);}
+.paper-title-wrap{flex:1;min-width:0}
+.paper-title{font-size:15px;font-weight:700;line-height:1.4;color:var(--text);margin-bottom:5px}
+.paper-cite{font-size:12.5px;color:var(--muted2)}
+.paper-verdict{flex-shrink:0;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:100px;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.25);color:var(--green);white-space:nowrap;}
+.chev{width:20px;height:20px;color:var(--muted2);flex-shrink:0;transition:transform .25s;margin-top:4px}
+.paper.open .chev{transform:rotate(180deg)}
+.paper-body{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
+.paper-inner{padding:0 24px 24px;border-top:1px solid var(--border)}
+.pblock{margin-top:18px}
+.pblock h4{font-size:12px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.pblock p{font-size:14.5px;color:var(--muted);line-height:1.65}
+.pblock.actual{border-left:3px solid var(--cyan);padding-left:14px}
+.pblock.claim{border-left:3px solid var(--orange);padding-left:14px}
+.pblock.impact{border-left:3px solid var(--green);padding-left:14px}
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);margin-top:30px;}
+table{width:100%;border-collapse:collapse;font-size:14px;}
+thead{background:var(--surface2);}
+th{text-align:left;padding:14px 18px;font-weight:750;font-size:12.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--border);white-space:nowrap;}
+td{padding:13px 18px;border-bottom:1px solid var(--border);color:var(--muted);line-height:1.5;}
+tbody tr:hover{background:rgba(255,255,255,.015)}
+tbody tr:last-child td{border-bottom:none}
+td b{color:var(--text);font-weight:650}td .pct{color:var(--gold);font-weight:800}td .pct-blue{color:var(--cyan);font-weight:800}
+.quotes-grid{display:flex;flex-direction:column;gap:16px}
+.quote-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;position:relative;border-left:4px solid var(--purple);}
+.quote-card .qmark{font-size:36px;color:var(--purple);opacity:.3;position:absolute;top:12px;left:18px;line-height:1;font-family:Georgia,serif;}
+.quote-card blockquote{font-size:15.5px;line-height:1.65;color:var(--text);font-style:italic;padding-left:24px;margin-bottom:14px;}
+.quote-card .attribution{font-size:13px;color:var(--muted2);font-weight:600;padding-left:24px;}
+.news-grid{display:flex;flex-direction:column;gap:14px}
+.news-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px;display:flex;gap:18px;align-items:flex-start;transition:border-color .2s;}
+.news-item:hover{border-color:var(--border2)}
+.news-icon{flex-shrink:0;width:44px;height:44px;border-radius:10px;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.25);display:flex;align-items:center;justify-content:center;font-size:20px;}
+.news-body h3{font-size:15px;font-weight:700;margin-bottom:6px;line-height:1.4}
+.news-body h3 a{color:var(--text)}.news-body h3 a:hover{color:var(--cyan)}
+.news-body p{font-size:13.5px;color:var(--muted);line-height:1.6}
+.news-body .source{font-size:12px;color:var(--muted2);margin-top:8px;}
+.principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
+.principle{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:transform .25s,border-color .25s;}
+.principle:hover{transform:translateY(-3px);border-color:var(--border2)}
+.principle .icon{width:42px;height:42px;border-radius:10px;background:rgba(240,180,41,.1);border:1px solid rgba(240,180,41,.25);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:20px;}
+.principle h3{font-size:15.5px;font-weight:750;margin-bottom:8px}.principle p{font-size:14px;color:var(--muted);line-height:1.6}
+.refs{display:flex;flex-direction:column;gap:12px}
+.ref{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:18px 20px;display:flex;gap:16px;align-items:flex-start;transition:border-color .2s,background .2s;}
+.ref:hover{border-color:var(--border2);background:var(--surface2)}
+.ref-num{flex-shrink:0;font-size:12px;font-weight:800;color:var(--gold);width:26px;height:26px;border-radius:6px;background:rgba(240,180,41,.1);border:1px solid rgba(240,180,41,.25);display:flex;align-items:center;justify-content:center;}
+.ref-txt{font-size:13.5px;color:var(--muted);line-height:1.6}
+.ref-txt b{color:var(--text);font-weight:650}.ref-txt .why{display:block;margin-top:6px;font-size:12.5px;color:var(--muted2);font-style:italic;}
+footer{border-top:1px solid var(--border);padding:44px 20px;text-align:center;max-width:var(--maxw);margin:0 auto;}
+footer p{font-size:13px;color:var(--muted2);line-height:1.7}
+footer .fline{display:inline-block;margin-top:14px;font-size:12px;color:var(--muted2);border:1px solid var(--border);border-radius:100px;padding:6px 16px;}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner"><div class="brand"><span class="dot"></span><span>R1a1 Â· The Science</span></div><div class="nav-links"><a href="#claim">The Claim</a><a href="#distribution">Distribution</a><a href="#table">Data Table</a><a href="#papers">Papers</a><a href="#quotes">Expert Quotes</a><a href="#news">News</a><a href="#principles">Principles</a><a href="#references">References</a><a href="#table" id="dlNavBtn" style="color:var(--green);border:1px solid rgba(52,211,153,.3);background:rgba(52,211,153,.07)">Download</a></div></div></nav>
+<header class="hero">
+  <div class="eyebrow reveal">Evidence-Based Analysis</div>
+  <h1 class="reveal">R1a1 is <span class="strike">an upper-caste marker</span><br><span class="grad">a haplogroup found across all Indian communities.</span></h1>
+  <p class="lead reveal">A comprehensive review of peer-reviewed research, geneticist statements, and published data on the distribution of Y-chromosome haplogroup R1a across Indian populations â€” with caste-wise frequency data from multiple studies.</p>
+  <div class="hero-stats">
+    <div class="stat reveal"><div class="num">13+</div><div class="lbl">Research papers cited</div></div>
+    <div class="stat reveal"><div class="num">20+</div><div class="lbl">Caste-wise data points</div></div>
+    <div class="stat reveal"><div class="num">8</div><div class="lbl">Expert quotations</div></div>
+    <div class="stat reveal"><div class="num">8</div><div class="lbl">News articles</div></div>
+  </div>
+</header>
+<section id="claim">
+  <div class="sec-head reveal"><div class="sec-num">01 â€” The Claim</div><h2>What is being claimed?</h2><p>A specific assertion about R1a1 and caste has circulated widely. Here is the claim in its strongest form â€” and what the evidence actually shows.</p></div>
+  <div class="claim-card reveal"><div class="label">The Claim</div><blockquote>"R1a1 is found only in upper castes â€” Brahmins and Kshatriyas â€” and is absent or negligible in SC/ST, Jat, Gujjar, Yadav, and other communities."</blockquote><div class="why">This claim is used to argue that R1a1 is a genetic marker of "Aryan" ancestry and that caste hierarchy reflects a racial divide.</div></div>
+  <div class="verdict-grid">
+    <div class="verdict reveal"><div class="vlabel no">What the claim implies</div><p>R1a1 should be present at high frequency in upper castes and absent or very low in SC/ST, Jats, Gujjars, Yadavs, and tribal populations. If true, it would support a racial interpretation of caste.</p></div>
+    <div class="verdict ok reveal"><div class="vlabel yes">What the evidence shows</div><p>R1a1 is present across all major Indian communities â€” including SC/ST, Jats, Gujjars, Yadavs, and tribal groups â€” with frequencies ranging from 10% to 78%. No peer-reviewed study states that it is exclusive to upper castes. In fact, the age of R1a1 is reported as highest in scheduled castes/tribes.</p></div>
+  </div>
+</section>
+<section id="distribution">
+  <div class="sec-head reveal"><div class="sec-num">02 â€” R1a Distribution</div><h2>Caste-wise R1a1 frequency across Indian populations</h2><p>Data compiled from published Y-chromosome studies. Frequencies vary by study, region, and sample size â€” but the pattern is clear: R1a is not the "property" of any single caste.</p></div>
+  <div class="chart-note reveal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f0b429" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>Frequencies reported in published Y-chromosome studies. Sample sizes and subclade definitions vary. Sources cited below each bar and in the data table.</span></div>
+  <div class="bars reveal" id="barsList"></div>
+  <div class="legend reveal"><div class="legend-item"><div class="legend-swatch" style="background:linear-gradient(90deg,#f0b429,#fb923c)"></div>Upper caste / dominant haplogroup</div><div class="legend-item"><div class="legend-swatch" style="background:linear-gradient(90deg,#38bdf8,#a78bfa)"></div>Tribal, SC/ST, and other communities</div></div>
+</section>
+<section id="table">
+  <div class="sec-head reveal"><div class="sec-num">03 â€” Data Table</div><h2>Detailed caste-wise R1a1 frequencies</h2><p>A comprehensive table of R1a1/R1a frequencies across caste, tribal, and regional populations. Download the full dataset as CSV, JSON, or TSV.</p></div>
+  
+  <!-- DOWNLOAD BAR -->
+  <div class="download-bar reveal" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:24px;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div style="width:42px;height:42px;border-radius:10px;background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.3);display:flex;align-items:center;justify-content:center;font-size:18px;">&#11015;&#65039;</div>
+      <div>
+        <h4 style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:2px;">Download the Dataset</h4>
+        <p style="font-size:12.5px;color:var(--muted2);">26 population groups &middot; 4 columns &middot; peer-reviewed sources</p>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button id="btnCSV" onclick="downloadData('csv')" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:9px;font-size:13px;font-weight:700;cursor:pointer;border:none;background:linear-gradient(135deg,#34d399,#059669);color:#fff;transition:all .2s;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Download CSV
+      </button>
+      <button onclick="downloadData('json')" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:9px;font-size:13px;font-weight:700;cursor:pointer;border:none;background:linear-gradient(135deg,#38bdf8,#0284c7);color:#fff;transition:all .2s;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Download JSON
+      </button>
+      <button onclick="downloadData('tsv')" style="display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:9px;font-size:13px;font-weight:700;cursor:pointer;border:none;background:linear-gradient(135deg,#a78bfa,#7c3aed);color:#fff;transition:all .2s;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Download TSV
+      </button>
+    </div>
+  </div>
+<div class="table-wrap reveal"><table><thead><tr><th>Population / Community</th><th>Region</th><th>R1a1 / R1a Frequency</th><th>Study / Source</th></tr></thead><tbody>
+    <tr><td><b>Jaunpur Kshatriyas</b></td><td>Uttar Pradesh</td><td><span class="pct">87%</span></td><td>Y-chromosomal insights</td></tr>
+    <tr><td><b>Muslim Gujjars (J&K)</b></td><td>Jammu &amp; Kashmir</td><td><span class="pct">78%</span></td><td>Wikipedia: Muslim Gujjars</td></tr>
+    <tr><td><b>West Bengal Brahmins</b></td><td>West Bengal</td><td><span class="pct">72%</span></td><td>Sengupta et al. 2006; Sharma et al. 2009</td></tr>
+    <tr><td><b>Khatris</b></td><td>Punjab/Haryana</td><td><span class="pct">67%</span></td><td>Underhill et al. 2009</td></tr>
+    <tr><td><b>Gujjars (Swabi &amp; Buner)</b></td><td>Khyber Pakhtunkhwa</td><td><span class="pct">61%</span></td><td>Wikipedia: Muslim Gujjars</td></tr>
+    <tr><td><b>Chaudhari</b></td><td>Gujarat</td><td><span class="pct">62.07%</span></td><td>Khurana et al. 2014</td></tr>
+    <tr><td><b>Gujars (Pakistan)</b></td><td>Pakistan</td><td><span class="pct">61.29%</span></td><td>HEC study</td></tr>
+    <tr><td><b>Jat Sikhs (R1a-Z93)</b></td><td>Punjab</td><td><span class="pct">55-65%</span></td><td>Helixline; multiple studies</td></tr>
+    <tr><td><b>Lohana</b></td><td>Gujarat</td><td><span class="pct">60%</span></td><td>Underhill et al. 2009</td></tr>
+    <tr><td><b>Bhanusali</b></td><td>Gujarat</td><td><span class="pct">67%</span></td><td>Underhill et al. 2009</td></tr>
+    <tr><td><b>Ahir (Haryana/Punjab)</b></td><td>Haryana/Punjab</td><td><span class="pct">63%</span></td><td>Underhill et al. 2009</td></tr>
+    <tr><td><b>Saharia (tribal)</b></td><td>Central India</td><td><span class="pct-blue">50.9%</span></td><td>Sharma et al. 2009</td></tr>
+    <tr><td><b>Kotas (tribal)</b></td><td>Tamil Nadu</td><td><span class="pct-blue">41%</span></td><td>ArunKumar et al. 2012</td></tr>
+    <tr><td><b>Valmikis (SC)</b></td><td>Andhra Pradesh</td><td><span class="pct-blue">Present</span></td><td>Kivisild et al. 2003</td></tr>
+    <tr><td><b>Kallar (OBC)</b></td><td>Tamil Nadu</td><td><span class="pct-blue">44%</span></td><td>Y-chromosomal insights</td></tr>
+    <tr><td><b>Chenchu (tribal)</b></td><td>Andhra Pradesh</td><td><span class="pct-blue">26%</span></td><td>Kivisild et al. 2003</td></tr>
+    <tr><td><b>Yadav (Bihar)</b></td><td>Bihar</td><td><span class="pct-blue">50%</span></td><td>Y-chromosomal insights</td></tr>
+    <tr><td><b>Iyengar Brahmins</b></td><td>Tamil Nadu</td><td><span class="pct">31%</span></td><td>Sengupta et al. 2006</td></tr>
+    <tr><td><b>Kamma Chaudhary</b></td><td>Andhra Pradesh</td><td><span class="pct">73%</span></td><td>Y-chromosomal insights</td></tr>
+    <tr><td><b>Khandayat</b></td><td>Odisha</td><td><span class="pct">46%</span></td><td>Y-chromosomal insights</td></tr>
+    <tr><td><b>Manipuris</b></td><td>Manipur</td><td><span class="pct">50%</span></td><td>Underhill et al. 2009</td></tr>
+    <tr><td><b>Punjabis</b></td><td>Punjab</td><td><span class="pct">47%</span></td><td>Kivisild et al. 2003</td></tr>
+    <tr><td><b>Brahmins (pooled, n=256)</b></td><td>Pan-India</td><td><span class="pct">40.63%</span></td><td>Sharma et al. 2009</td></tr>
+    <tr><td><b>SC/ST/Tribals (n=254)</b></td><td>Pan-India</td><td><span class="pct-blue">20.47%</span></td><td>Sharma et al. 2009</td></tr>
+    <tr><td><b>Dalits (n=674)</b></td><td>Pan-India</td><td><span class="pct-blue">17.2%</span></td><td>Sharma et al. 2009 (pooled)</td></tr>
+    <tr><td><b>Overall Indian average</b></td><td>India</td><td><span class="pct">17.5%</span></td><td>Krepublishers</td></tr>
+  </tbody></table></div>
+</section>
+<section id="papers"><div class="sec-head reveal"><div class="sec-num">04 â€” Research Papers</div><h2>Peer-reviewed studies on R1a and Indian populations</h2><p>Click each paper to expand.</p></div><div class="papers" id="papersList"></div></section>
+<section id="quotes"><div class="sec-head reveal"><div class="sec-num">05 â€” Expert Quotes</div><h2>What geneticists and researchers say</h2><p>Direct quotations from the scientists who conducted the primary research.</p></div><div class="quotes-grid" id="quotesList"></div></section>
+<section id="news"><div class="sec-head reveal"><div class="sec-num">06 â€” News &amp; Articles</div><h2>Published coverage of the research</h2><p>Mainstream media and science journalism reporting on the genetic studies.</p></div><div class="news-grid" id="newsList"></div></section>
+<section id="principles"><div class="sec-head reveal"><div class="sec-num">07 â€” Core Principles</div><h2>Four basic genetics rules that apply here</h2></div><div class="principles" id="principlesList"></div></section>
+<section id="references"><div class="sec-head reveal"><div class="sec-num">08 â€” References</div><h2>Full reference list</h2><p>All papers, articles, and sources cited on this page.</p></div><div class="refs" id="refsList"></div></section>
+<footer><p>This is an evidence-based analysis. Scientific claims should be verified with exact citations â€” not appeals to authority.</p><div class="fline">Built for evidence-based discussion Â· Not affiliated with any political position</div></footer>
+<script>
+const PAPERS=[{title:"The Indian origin of paternal haplogroup R1a1*",cite:"Sharma et al. (2009) Â· Journal of Human Genetics, 54(1), 47â€“55",verdict:"Key finding",actual:"621 Y-chromosomes were screened â€” Brahmins and scheduled castes/tribals. 55 binary markers and 7 microsatellite markers used.",claim:"Found R1a1* in different tribal population groups; supported autochthonous Indian origin.",impact:"'Observation of R1a1* in different tribal population groups...supported the autochthonous origin of R1a1 lineage in India and a tribal link to Indian Brahmins.'",link:"https://www.nature.com/articles/jhg20082"},{title:"A prehistory of Indian Y chromosomes: Evaluating demic diffusion scenarios",cite:"Sahoo et al. (2006) Â· PNAS, 103(4), 843â€“848",verdict:"Key finding",actual:"Analyzed Y-chromosome data from across India, evaluating demic diffusion for spread of Indo-European speakers.",claim:"R1a diversity is higher in India than Central Asia â€” opposite of what Central Asian migration would predict.",impact:"'The STR haplotype diversity on the background of R1a in Central Asia has already been shown to be lower than that in India.'",link:"https://www.pnas.org/doi/10.1073/pnas.0507714103"},{title:"The formation of human populations in South and Central Asia",cite:"Narasimhan et al. (2019) Â· Science, 365(6457)",verdict:"Context",actual:"523 ancient genomes analyzed. Steppe ancestry spread via Central Asia ~4000 years ago. Most South Asians carry 10â€“22% Steppe ancestry.",claim:"Does not mention caste or R1a exclusivity.",impact:"'Most South Asians carry some ancestry derived from steppe pastoralists, ranging from less than ten percent to a little over twenty percent.'",link:"https://doi.org/10.1126/science.aat7487"},{title:"An Ancient Harappan Genome Lacks Ancestry from Steppe Pastoralists",cite:"Shinde et al. (2019) Â· Cell, 179(3)",verdict:"Context",actual:"Ancient genome from Rakhigarhi (IVC) was sequenced. Individual fits as mixture of ancient Iranians and Southeast Asian hunter-gatherers.",claim:"About timing of Steppe ancestry â€” not about caste or R1a distribution.",impact:"'These individuals had little if any Steppe pastoralist-derived ancestry, showing that it was not ubiquitous in northwest South Asia during the IVC.'",link:"https://doi.org/10.1016/j.cell.2019.08.048"},{title:"Genetic Evidence for Recent Population Mixture in India",cite:"Moorjani, Reich et al. (2013) Â· AJHG",verdict:"Key finding",actual:"Genome-wide data from 73 groups analyzed. ANI-ASI mixture dates: 1,900 to 4,200 years ago.",claim:"About endogamy, not invasion. Directly contradicts idea that caste hierarchy has a racial genetic basis.",impact:"'India experienced a demographic transformation...from a region in which major population mixture was common to one in which mixture...became rare because of a shift to endogamy.'",link:"https://doi.org/10.1016/j.ajhg.2013.07.006"},{title:"Population Differentiation of Southern Indian Male Lineages",cite:"ArunKumar et al. (2012) Â· PLoS ONE, 7(11), e50269",verdict:"Key finding",actual:"680 Y chromosomes from 12 tribal and 19 non-tribal populations in Tamil Nadu analyzed.",claim:"R1a1 lineages found in South Indian tribal Irula. Differentiation predates caste system.",impact:"'We observe Y-chromosome R1a1 lineages in South Indian tribal Irula.'",link:"https://doi.org/10.1371/journal.pone.0050269"},{title:"Genetic variation in South Indian castes",cite:"Wooding et al. (2008) Â· BMC Genetics, 9, 86",verdict:"Key finding",actual:"Analyzed Y-chromosome, mitochondrial, and autosomal polymorphisms in South Indian castes.",claim:"Observed R1a1 lineages in South Indian tribal Irula â€” R1a1 not exclusive to upper castes.",impact:"'We observe Y-chromosome R1a1 lineages in South Indian tribal Irula.'",link:"https://doi.org/10.1186/1471-2156-9-86"},{title:"The genetic heritage of the earliest settlers persists in Indian tribal and caste populations",cite:"Kivisild et al. (2003) Â· AJHG, 72(2), 313â€“332",verdict:"Key finding",actual:"Chenchus and Koyas tribal groups analyzed. R1a found at 26% in Chenchu tribe.",claim:"R1a at 26% in Chenchu tribe directly contradicts claim that R1a1 is exclusive to upper castes.",impact:"'Haplogroup R1a...was found at its highest frequency in Punjab but also at a relatively high frequency (26%) in the Chenchu tribe.'",link:"https://doi.org/10.1086/346068"},{title:"Polarity and Temporality of High-Resolution Y-Chromosome Distributions in India",cite:"Sengupta et al. (2006) Â· AJHG, 78(2), 202â€“221",verdict:"Key finding",actual:"Y-chromosome distributions across India. Majority arrived in or before early Holocene (10,000 years ago).",claim:"Directly challenges claim that R1a1 came via recent Central Asian migration.",impact:"'The majority of the subcontinent Y-chromosomes arrived in or before the early Holocene.' R1a1 age highest in scheduled castes/tribes.",link:"https://doi.org/10.1086/499411"},{title:"50,000 years of evolutionary history of India",cite:"Kerdoncuff & Moorjani et al. (2025) Â· Cell, 188(13)",verdict:"Context",actual:"Whole-genome sequences from 2,762 individuals. All Indians are mixed from three ancestral groups.",claim:"Does not support claims about caste-specific R1a distribution.",impact:"All Indians are mixed, drawing ancestry from three ancestral groups. No mention of caste-specific R1a distribution.",link:"https://doi.org/10.1016/j.cell.2025.04.027"},{title:"Independent Origins of Indian Caste and Tribal Paternal Lineages",cite:"Cordaux et al. (2004) Â· Current Biology, 14(3)",verdict:"Context",actual:"Y-chromosome data from Indian caste and tribal populations. Independent origins found.",claim:"Shows caste and tribal lineages have independent origins â€” inconsistent with a simple invasion model.",impact:"Independent origins of caste and tribal paternal lineages.",link:"https://doi.org/10.1016/j.cub.2004.01.024"}];
+const BARS=[{label:"Jaunpur Kshatriyas",sub:"Uttar Pradesh",value:87,note:"87% Â· Y-chromosomal insights",color:"linear-gradient(90deg,#f0b429,#fb923c)"},{label:"Muslim Gujjars (J&K)",sub:"Jammu & Kashmir",value:78,note:"78% Â· Wikipedia: Muslim Gujjars",color:"linear-gradient(90deg,#f0b429,#fb923c)"},{label:"Kamma Chaudhary",sub:"Andhra Pradesh",value:73,note:"73% Â· Y-chromosomal insights",color:"linear-gradient(90deg,#f0b429,#fb923c)"},{label:"West Bengal Brahmins",sub:"West Bengal",value:72,note:"72% Â· Sengupta et al. 2006",color:"linear-gradient(90deg,#f0b429,#fb923c)"},{label:"Khatris",sub:"Punjab/Haryana",value:67,note:"67% Â· Underhill et al. 2009",color:"linear-gradient(90deg,#f0b429,#fb923c)"},{label:"Bhanusali",sub:"Gujarat",value:67,note:"67% Â· Underhill et al. 2009",color:"linear-gradient(90deg,#f0b429,#fb923c)"},{label:"Ahir",sub:"Haryana/Punjab",value:63,note:"63% Â· Underhill et al. 2009",color:"linear-gradient(90deg,#f0b429,#fb923c)"},{label:"Chaudhari",sub:"Gujarat",value:62,note:"62.07% Â· Khurana et al. 2014",color:"linear-gradient(90deg,#f0b429,#fb923c)"},{label:"Gujars (Pakistan)",sub:"Pakistan",value:61,note:"61.29% Â· HEC study",color:"linear-gradient(90deg,#f0b429,#fb923c)"},{label:"Lohana",sub:"Gujarat",value:60,note:"60% Â· Underhill et al. 2009",color:"linear-gradient(90deg,#f0b429,#fb923c)"},{label:"Jat Sikhs (R1a-Z93)",sub:"Punjab",value:60,note:"55-65% Â· Helixline; multiple studies",color:"linear-gradient(90deg,#f0b429,#fb923c)"},{label:"Saharia (tribal)",sub:"Central India",value:51,note:"50.9% Â· Sharma et al. 2009",color:"linear-gradient(90deg,#38bdf8,#a78bfa)"},{label:"Yadav (Bihar)",sub:"Bihar",value:50,note:"50% Â· Y-chromosomal insights",color:"linear-gradient(90deg,#38bdf8,#a78bfa)"},{label:"Manipuris",sub:"Manipur",value:50,note:"50% Â· Underhill et al. 2009",color:"linear-gradient(90deg,#38bdf8,#a78bfa)"},{label:"Punjabis",sub:"Punjab",value:47,note:"47% Â· Kivisild et al. 2003",color:"linear-gradient(90deg,#38bdf8,#a78bfa)"},{label:"Khandayat",sub:"Odisha",value:46,note:"46% Â· Y-chromosomal insights",color:"linear-gradient(90deg,#38bdf8,#a78bfa)"},{label:"Kallar (OBC)",sub:"Tamil Nadu",value:44,note:"44% Â· Y-chromosomal insights",color:"linear-gradient(90deg,#38bdf8,#a78bfa)"},{label:"Kotas (tribal)",sub:"Tamil Nadu",value:41,note:"41% Â· ArunKumar et al. 2012",color:"linear-gradient(90deg,#38bdf8,#a78bfa)"},{label:"Brahmins (pooled)",sub:"Pan-India (n=256)",value:41,note:"40.63% Â· Sharma et al. 2009",color:"linear-gradient(90deg,#f0b429,#fb923c)"},{label:"Iyengar Brahmins",sub:"Tamil Nadu",value:31,note:"31% Â· Sengupta et al. 2006",color:"linear-gradient(90deg,#f0b429,#fb923c)"},{label:"Chenchu (tribal)",sub:"Andhra Pradesh",value:26,note:"26% Â· Kivisild et al. 2003",color:"linear-gradient(90deg,#38bdf8,#a78bfa)"},{label:"SC/ST/Tribals (pooled)",sub:"Pan-India (n=254)",value:20,note:"20.47% Â· Sharma et al. 2009",color:"linear-gradient(90deg,#38bdf8,#a78bfa)"},{label:"Dalits (pooled)",sub:"Pan-India (n=674)",value:17,note:"17.2% Â· Sharma et al. 2009",color:"linear-gradient(90deg,#38bdf8,#a78bfa)"},{label:"Overall Indian avg.",sub:"India",value:18,note:"17.5% Â· Krepublishers",color:"linear-gradient(90deg,#38bdf8,#a78bfa)"}];
+const QUOTES=[{text:"Only a few thousand years ago, the Indian population structure was vastly different from today. The caste system has been around for a long time, but not forever.",attribution:"David Reich, Harvard Medical School â€” EurekAlert (2013)"},{text:"Prior to about 4,200 years ago, there were unmixed groups in India. Sometime between 1,900 to 4,200 years ago, profound, pervasive convulsive mixture occurred, affecting every Indo-European and Dravidian group in India without exception.",attribution:"David Reich, Harvard Medical School â€” Broad Institute (2013)"},{text:"But the populations that emerged from ASI don't show any affinity to any population outside India.",attribution:"Kumarasamy Thangaraj, Senior Scientist, CCMB â€” The Hindu (2009)"},{text:"The pattern of clustering does not support the model that the primary source of the R1a1-M17 chromosomes in India was Central Asia or the Indus Valley via Indo-European speakers.",attribution:"Prof. Partha P. Majumder, National Institute of Biomedical Genomics â€” Current Science (2010)"},{text:"The STR haplotype diversity on the background of R1a in Central Asia has already been shown to be lower than that in India. The high incidence of R1* and R1a throughout Central Asian and East European populations is more parsimoniously explained by gene flow in the opposite direction.",attribution:"Sahoo et al. (2006), PNAS"},{text:"Observation of R1a1* in different tribal population groups...supported the autochthonous origin of R1a1 lineage in India and a tribal link to Indian Brahmins.",attribution:"Sharma et al. (2009), Journal of Human Genetics"},{text:"We observe Y-chromosome R1a1 lineages in South Indian tribal Irula.",attribution:"Wooding et al. (2008), BMC Genetics"},{text:"Haplogroup R1a, previously associated with the putative Indo-Aryan invasion, was found at its highest frequency in Punjab but also at a relatively high frequency (26%) in the Chenchu tribe.",attribution:"Kivisild et al. (2003), AJHG"},{text:"Our findings strongly challenge the older Aryan invasion model. We have ancient DNA from roughly 1500â€“1200 BCE across different parts of India, and we simply don't see strong steppe or Central Asian ancestry during that period.",attribution:"Niraj Rai, geneticist â€” The Week (2026)"}];
+const NEWS=[{icon:"ðŸ“°",title:"Indians had a 'caste no bar' past",description:"New genetic research reveals that the Indian population got divided into castes around 1,900 years ago. Before that, people mixed freely.",source:"Nature India Â· 2013",link:"https://www.nature.com/articles/nindia.2013.116"},{icon:"ðŸ§¬",title:"Genetic Study Reveals Origin of India's Caste System",description:"'There was a transformation where most groups now practice endogamy,' said study co-author Priya Moorjani.",source:"Live Science Â· 2013",link:"https://www.livescience.com/38689-india-caste-system-origin.html"},{icon:"ðŸ”¬",title:"Exploring India's genetic history",description:"David Reich: 'Prior to about 4,200 years ago there was no mixture. After that, widespread mixture affected almost every group in India. In the last 1,900 years, mixture stopped.'",source:"Broad Institute Â· 2013",link:"https://www.broadinstitute.org/blog/exploring-india's-genetic-history"},{icon:"ðŸ“Š",title:"Too early to settle the Aryan migration debate?",description:"The statement that 17.5% of Indians carry R1a actually means 17.5% of samples analyzed carry R1a â€” not that it is exclusive to any caste.",source:"The Hindu Â· 2017",link:"https://www.thehindu.com/sci-tech/science/too-early-to-settle-the-aryan-migration-debate/article19269461.ece"},{icon:"ðŸ“°",title:"After the Harappans, large influx brought steppe DNA into South Asia",description:"Narasimhan: 'Most South Asians carry some ancestry derived from steppe pastoralists, ranging from less than ten percent to a little over twenty percent.'",source:"The Caravan Â· 2019",link:"https://caravanmagazine.in/science/after-harappans-influx-steppe-dna-south-asia-vagheesh-narasimhan"},{icon:"ðŸ§ª",title:"Maternal ancestry of Gujarat's population dates back to 40,000 years",description:"'This study fundamentally undermines the Aryan Invasion Theory by showing no evidence of significant maternal gene flow during the alleged Indo-Aryan period.'",source:"Times of India Â· 2026",link:"https://timesofindia.indiatimes.com/city/varanasi/maternal-ancestry-of-gujs-popn-dates-back-to-40000-yrs/articleshow/117789012.cms"},{icon:"ðŸ“°",title:"No genetic basis for Brahmin, Dalit or OBC identities",description:"Niraj Rai: 'Our findings strongly challenge the older Aryan invasion model. We simply don't see strong steppe or Central Asian ancestry during the alleged Aryan period.'",source:"The Week Â· 2026",link:"https://www.theweek.in/news/india/2026/08/23/no-genetic-basis-for-brahmin-dalit-or-obc-identities-niraj-rai.html"},{icon:"ðŸ“°",title:"Aryan-Dravidian divide a myth: Study",description:"CCMB scientist Kumarasamy Thangaraj: 'The populations that emerged from ASI don't show any affinity to any population outside India.'",source:"Times of India Â· 2009",link:"https://timesofindia.indiatimes.com/india/aryan-dravidian-divide-a-myth-study/articleshow/5054955.cms"}];
+const PRINCIPLES=[{icon:"â‰ ",title:"Frequency â‰  Exclusivity",text:"A high frequency of a haplogroup in one population does not mean it is absent in others. R1a is found across many communities â€” only the percentage varies."},{icon:"Y",title:"Y-DNA is a marker, not an identity",text:"R1a is a Y-chromosome haplogroup passed from father to son. It does not represent entire ancestry â€” autosomal DNA gives the full picture."},{icon:"ðŸ›",title:"Caste = Social, not Racial",text:"Moorjani et al. (2013): mixture was common, then endogamy emerged. The caste system is a social institution â€” not a genetic divide."},{icon:"â“",title:"Extraordinary claims need exact citations",text:"Citing a 'top journal' is not enough. In population genetics, higher frequency in one group does not mean exclusive presence."}];
+const REFS=[{txt:"<b>Sharma, S., et al. (2009).</b> The Indian origin of paternal haplogroup R1a1*. <i>Journal of Human Genetics</i>, 54(1), 47â€“55.",why:"Found R1a1* in tribal populations; supported Indian origin of R1a1.",link:"https://www.nature.com/articles/jhg20082"},{txt:"<b>Sahoo, S., et al. (2006).</b> A prehistory of Indian Y chromosomes. <i>PNAS</i>, 103(4), 843â€“848.",why:"R1a diversity higher in India than Central Asia.",link:"https://www.pnas.org/doi/10.1073/pnas.0507714103"},{txt:"<b>Narasimhan, V. M., et al. (2019).</b> The formation of human populations in South and Central Asia. <i>Science</i>, 365(6457).",why:"523 ancient genomes; Steppe ancestry 10â€“22% across all South Asian groups.",link:"https://doi.org/10.1126/science.aat7487"},{txt:"<b>Shinde, V., et al. (2019).</b> An Ancient Harappan Genome Lacks Ancestry from Steppe Pastoralists. <i>Cell</i>, 179(3).",why:"Rakhigarhi genome lacked Steppe ancestry.",link:"https://doi.org/10.1016/j.cell.2019.08.048"},{txt:"<b>Moorjani, P., Reich, D., et al. (2013).</b> Genetic Evidence for Recent Population Mixture in India. <i>AJHG</i>.",why:"Endogamy emerged 1,900â€“4,200 years ago; caste system is a social process.",link:"https://doi.org/10.1016/j.ajhg.2013.07.006"},{txt:"<b>ArunKumar, G., et al. (2012).</b> Population Differentiation of Southern Indian Male Lineages. <i>PLoS ONE</i>, 7(11).",why:"Found R1a1 in South Indian tribal Irula; differentiation predates caste.",link:"https://doi.org/10.1371/journal.pone.0050269"},{txt:"<b>Wooding, S., et al. (2008).</b> Genetic variation in South Indian castes. <i>BMC Genetics</i>, 9, 86.",why:"Observed R1a1 lineages in South Indian tribal Irula.",link:"https://doi.org/10.1186/1471-2156-9-86"},{txt:"<b>Kivisild, T., et al. (2003).</b> The Genetic Heritage of the Earliest Settlers. <i>AJHG</i>.",why:"R1a at 26% in Chenchu tribe.",link:"https://doi.org/10.1086/346068"},{txt:"<b>Sengupta, S., et al. (2006).</b> Polarity and Temporality of Y-Chromosome Distributions in India. <i>AJHG</i>, 78(2).",why:"R1a1 age highest in scheduled castes/tribes.",link:"https://doi.org/10.1086/499411"},{txt:"<b>Kerdoncuff, E., Moorjani, P., et al. (2025).</b> 50,000 years of evolutionary history of India. <i>Cell</i>, 188(13).",why:"2,762 individuals; all Indians are mixed from three ancestral groups.",link:"https://doi.org/10.1016/j.cell.2025.04.027"},{txt:"<b>Cordaux, R., et al. (2004).</b> Independent Origins of Indian Caste and Tribal Paternal Lineages. <i>Current Biology</i>.",why:"Independent origins of caste and tribal paternal lineages.",link:"https://doi.org/10.1016/j.cub.2004.01.024"},{txt:"<b>Majumder, P. P. (2010).</b> The human genetic history of South Asia. <i>Current Biology</i>, 20(4).",why:"Clustering pattern does not support Central Asian origin of R1a1-M17.",link:"https://doi.org/10.1016/j.cub.2009.11.053"},{txt:"<b>Underhill, P. A., et al. (2009).</b> Separating post-Glacial coancestry within haplogroup R1a. <i>EJHG</i>, 18(4).",why:"High R1a in Khatris (67%), Lohanas (60%), and other communities.",link:"https://doi.org/10.1038/ejhg.2009.194"}];
+const pL=document.getElementById('papersList');
+PAPERS.forEach((p,i)=>{const el=document.createElement('div');el.className='paper reveal';el.innerHTML=`<div class="paper-head"><div class="paper-idx">${i+1}</div><div class="paper-title-wrap"><div class="paper-title">${p.title}</div><div class="paper-cite">${p.cite}</div></div><div class="paper-verdict">${p.verdict}</div><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></div><div class="paper-body"><div class="paper-inner"><div class="pblock actual"><h4>Actual Focus</h4><p>${p.actual}</p></div><div class="pblock claim"><h4>Relevance</h4><p>${p.claim}</p></div><div class="pblock impact"><h4>Key Quotation</h4><p>${p.impact}</p></div><div class="pblock"><h4>Link</h4><p><a href="${p.link}" target="_blank">${p.link}</a></p></div></div></div>`;const h=el.querySelector('.paper-head'),b=el.querySelector('.paper-body');h.addEventListener('click',()=>{const o=el.classList.toggle('open');b.style.maxHeight=o?b.scrollHeight+'px':'0px';});pL.appendChild(el);});
+const bL=document.getElementById('barsList');
+BARS.forEach(b=>{const r=document.createElement('div');r.className='bar-row';r.innerHTML=`<div class="bar-label">${b.label}<small>${b.sub}</small></div><div class="bar-track"><div class="bar-fill" style="background:${b.color}" data-val="${b.value}"></div></div><div class="bar-val">${b.value}%</div><div class="bar-note">${b.note}</div>`;bL.appendChild(r);});
+const qL=document.getElementById('quotesList');
+QUOTES.forEach(q=>{const el=document.createElement('div');el.className='quote-card reveal';el.innerHTML=`<div class="qmark">"</div><blockquote>${q.text}</blockquote><div class="attribution">â€” ${q.attribution}</div>`;qL.appendChild(el);});
+const nL=document.getElementById('newsList');
+NEWS.forEach(n=>{const el=document.createElement('div');el.className='news-item reveal';el.innerHTML=`<div class="news-icon">${n.icon}</div><div class="news-body"><h3><a href="${n.link}" target="_blank">${n.title}</a></h3><p>${n.description}</p><div class="source">${n.source}</div></div>`;nL.appendChild(el);});
+const prL=document.getElementById('principlesList');
+PRINCIPLES.forEach(p=>{const el=document.createElement('div');el.className='principle reveal';el.innerHTML=`<div class="icon">${p.icon}</div><h3>${p.title}</h3><p>${p.text}</p>`;prL.appendChild(el);});
+const rL=document.getElementById('refsList');
+REFS.forEach((r,i)=>{const el=document.createElement('div');el.className='ref reveal';el.innerHTML=`<div class="ref-num">${i+1}</div><div class="ref-txt">${r.txt}<span class="why">${r.why}</span> <a href="${r.link}" target="_blank">${r.link}</a></div>`;rL.appendChild(el);});
+const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const bIo=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.querySelectorAll('.bar-fill').forEach((f,i)=>{setTimeout(()=>{f.style.width=f.dataset.val+'%';},i*50);});bIo.unobserve(x.target);}});},{threshold:0.15});
+const bW=document.getElementById('barsList');if(bW)bIo.observe(bW);
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length>1){const t=document.querySelector(id);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}}});});
+
+/* === DOWNLOAD DATA === */
+const TABLE_DATA=[
+  {population:"Jaunpur Kshatriyas",region:"Uttar Pradesh",frequency:"87%",source:"Y-chromosomal insights"},
+  {population:"Muslim Gujjars (J&K)",region:"Jammu & Kashmir",frequency:"78%",source:"Wikipedia: Muslim Gujjars"},
+  {population:"Kamma Chaudhary",region:"Andhra Pradesh",frequency:"73%",source:"Y-chromosomal insights"},
+  {population:"West Bengal Brahmins",region:"West Bengal",frequency:"72%",source:"Sengupta et al. 2006; Sharma et al. 2009"},
+  {population:"Khatris",region:"Punjab/Haryana",frequency:"67%",source:"Underhill et al. 2009"},
+  {population:"Bhanusali",region:"Gujarat",frequency:"67%",source:"Underhill et al. 2009"},
+  {population:"Ahir (Haryana/Punjab)",region:"Haryana/Punjab",frequency:"63%",source:"Underhill et al. 2009"},
+  {population:"Chaudhari",region:"Gujarat",frequency:"62.07%",source:"Khurana et al. 2014"},
+  {population:"Gujars (Pakistan)",region:"Pakistan",frequency:"61.29%",source:"HEC study"},
+  {population:"Gujjars (Swabi & Buner)",region:"Khyber Pakhtunkhwa",frequency:"61%",source:"Wikipedia: Muslim Gujjars"},
+  {population:"Lohana",region:"Gujarat",frequency:"60%",source:"Underhill et al. 2009"},
+  {population:"Jat Sikhs (R1a-Z93)",region:"Punjab",frequency:"55-65%",source:"Helixline; multiple studies"},
+  {population:"Saharia (tribal)",region:"Central India",frequency:"50.9%",source:"Sharma et al. 2009"},
+  {population:"Yadav (Bihar)",region:"Bihar",frequency:"50%",source:"Y-chromosomal insights"},
+  {population:"Manipuris",region:"Manipur",frequency:"50%",source:"Underhill et al. 2009"},
+  {population:"Punjabis",region:"Punjab",frequency:"47%",source:"Kivisild et al. 2003"},
+  {population:"Khandayat",region:"Odisha",frequency:"46%",source:"Y-chromosomal insights"},
+  {population:"Kallar (OBC)",region:"Tamil Nadu",frequency:"44%",source:"Y-chromosomal insights"},
+  {population:"Kotas (tribal)",region:"Tamil Nadu",frequency:"41%",source:"ArunKumar et al. 2012"},
+  {population:"Brahmins (pooled, n=256)",region:"Pan-India",frequency:"40.63%",source:"Sharma et al. 2009"},
+  {population:"Iyengar Brahmins",region:"Tamil Nadu",frequency:"31%",source:"Sengupta et al. 2006"},
+  {population:"Chenchu (tribal)",region:"Andhra Pradesh",frequency:"26%",source:"Kivisild et al. 2003"},
+  {population:"Valmikis (SC)",region:"Andhra Pradesh",frequency:"Present",source:"Kivisild et al. 2003"},
+  {population:"SC/ST/Tribals (n=254)",region:"Pan-India",frequency:"20.47%",source:"Sharma et al. 2009"},
+  {population:"Dalits (n=674)",region:"Pan-India",frequency:"17.2%",source:"Sharma et al. 2009 (pooled)"},
+  {population:"Overall Indian average",region:"India",frequency:"17.5%",source:"Krepublishers"}
+];
+function showToast(msg){
+  let t=document.getElementById('dlToast');
+  if(!t){t=document.createElement('div');t.id='dlToast';t.style.cssText='position:fixed;bottom:28px;right:28px;z-index:999;background:#34d399;color:#0a0e17;font-weight:700;font-size:13px;padding:12px 20px;border-radius:10px;display:flex;align-items:center;gap:8px;box-shadow:0 8px 32px rgba(52,211,153,.4);transform:translateY(80px);opacity:0;transition:all .35s cubic-bezier(.2,.8,.3,1);';document.body.appendChild(t);}
+  t.textContent='✓ '+msg;t.style.transform='translateY(0)';t.style.opacity='1';
+  setTimeout(()=>{t.style.transform='translateY(80px)';t.style.opacity='0';},2800);
+}
+function triggerDownload(content,filename,mime){
+  const b=new Blob([content],{type:mime});
+  const u=URL.createObjectURL(b);
+  const a=document.createElement('a');a.href=u;a.download=filename;
+  document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(u);
+}
+function downloadData(fmt){
+  const H=['Population / Community','Region','R1a1 / R1a Frequency','Study / Source'];
+  if(fmt==='csv'){
+    const rows=TABLE_DATA.map(r=>[r.population,r.region,r.frequency,r.source].map(v=>'"'+v.replace(/"/g,'""')+'"').join(','));
+    triggerDownload([H.join(','),...rows].join('\r\n'),'r1a1-caste-distribution.csv','text/csv');
+    showToast('CSV downloaded!');
+  }else if(fmt==='json'){
+    triggerDownload(JSON.stringify(TABLE_DATA,null,2),'r1a1-caste-distribution.json','application/json');
+    showToast('JSON downloaded!');
+  }else{
+    const rows=TABLE_DATA.map(r=>[r.population,r.region,r.frequency,r.source].join('\t'));
+    triggerDownload([H.join('\t'),...rows].join('\r\n'),'r1a1-caste-distribution.tsv','text/tab-separated-values');
+    showToast('TSV downloaded!');
+  }
+}</script>
+</body>
+</html>
